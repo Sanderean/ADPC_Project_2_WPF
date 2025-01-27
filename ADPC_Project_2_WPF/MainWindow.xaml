@@ -1,0 +1,33 @@
+﻿<Window x:Class="ADPC_Project_2_WPF.MainWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+         mc:Ignorable="d"
+         Title="Gene Expression Visualizer"
+         WindowState="Maximized"
+    WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10,10,0" HorizontalAlignment="Center">
+            <StackPanel Margin="10">
+                <TextBlock Text="Select Cancer Type:" FontWeight="Bold" Margin="0,0,0,5" />
+                <ComboBox x:Name="CancerTypeDropdown" Width="200" SelectionChanged="CancerTypeDropdown_SelectionChanged" />
+            </StackPanel>
+            <StackPanel Margin="10">
+                <TextBlock Text="Select Patient:" FontWeight="Bold" Margin="0,0,0,5" />
+                <ComboBox x:Name="PatientDropdown" Width="200" SelectionChanged="PatientDropdown_SelectionChanged" />
+            </StackPanel>
+        </StackPanel>
+
+        <lvc:CartesianChart x:Name="chart" Margin="10,70,10,10">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Genes" Labels="{Binding Labels}" />
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Expression Level" />
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+    </Grid>
+</Window>
